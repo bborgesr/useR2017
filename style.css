@@ -1,0 +1,26 @@
+.title-slide {
+  background: #3e8ac7;
+}
+
+.title-slide hgroup h1 {
+  color: #e0e0e0;
+}
+
+.title-slide hgroup p {
+  color: #c9c9c9;
+}
+
+hgroup h2 {
+  color: #3e8ac7;
+}
+
+slides > slide:not(.nobackground):after {
+  bottom: 0px;
+  right: 0px;
+  background: #3e8ac7;
+  background-image: url("assets/rstudio-white.png");
+  background-repeat: no-repeat;
+  background-position: 90px 6px;
+  padding: 0px 70px 20px 850px;
+  color: white;
+}

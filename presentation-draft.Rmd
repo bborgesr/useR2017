@@ -1,0 +1,117 @@
+---
+  title: "Connecting to databases from R (and Shiny!)"
+author: "Barbara Borges Ribeiro"
+date: "useR 2017"
+output: 
+  ioslides_presentation:
+  transition: 0
+css: style.css
+runtime: shiny
+---
+  
+  <!-- ABSTRACT
+Connecting to an external database from *R* can be challenging. To demystify this, I'll go over three important packages that help you out. The **DBI** package does a great job of standardizing how to establish a connection, execute queries using *SQL* and close the connection. The **dplyr** package builds on top of this to make even easier to connect to databases and extract data, since it allows users to query the database using regular **dplyr** syntax (no *SQL* knowledge necessary). Yet a third package, **pool** exists to make the process of interacting with databases even safer and easier, especially in interactive contexts, like exploration at the console, or within a Shiny app. At the end of the talk, I'll demo a Shiny app that uses these packages.
+-->
+  
+  -------
+  
+  <!-- FROM HADLEY
+There's more thing that I think needs to be on our radar: a databases website. I think we should need a website analogous to spark.rstudio.com, maybe called db.rstudio.com.  This will present both our commercial drivers and generally best practices about using databases in R. In my mind the most important content is:
+
+* DBI + dplyr basics
+* Connecting to open source databases with RMySQL, RPostgreSQL, and RMySQL
+* Connecting to commercial databases with odbc
+* Connecting to database in production/shiny environments with pool
+* Securely managing credentials with keychain
+* Avoiding injection attacks with prepared queries
+
+Much of this has already been written for shiny (search http://shiny.rstudio.com/articles/ for databases), but I think it's important enough that it should be hoisted to the top-level.
+
+Hadley
+-->
+  
+  ## Content
+  
+  - What's new with Shiny
+- Bookmarking, Testing (`shinytest`), APIs, Working on async
+- Why databases?
+- Types of databases (relational, noSQL)
+- Databases in R (DBI, dplyr, odbc, pool)
+- build on each other
+- explain concept behind each one and give code example
+- Shiny app demo
+
+## What's new with Shiny
+
+- Bookmarking
+- Testing (`shinytest`)
+- APIs
+- Working on async
+
+## Why databases?
+
+## Types of databases
+
+- **Relational databases**
+  - RDBMSs (relational database management systems) store data in columns and rows, which in turn make up tables. A table in RDBMS is like a spreadsheet. 
+- MySQL, PostgreSQL, SQLite, SQL Server
+- DBI (explain), ODBC
+
+- **NoSQL/object oriented databases**
+  - These do not follow the table/row/column approach of RDBMS. Good for working with large amounts of data that do not require structure. Less concerned with storing them in ordered tables than they are with simply making them available for fast access.
+- MongoDB, CouchDB, HBase, Cassandra 
+
+## Databases in R
+
+- Relational databases, that are DBI-compliant
+- `DBI`
+- `dplyr`
+- `odbc`
+- `pool`
+
+## DBI
+- concept
+- example
+- What can you do?
+  - Read data
+- Write/mutate data
+- Things to keep in mind
+- SQL injections
+
+## dplyr
+
+## odbc
+
+## pool
+- Connection management, performance
+
+## Shiny app demo
+
+
+
+
+<!--
+  ## R Markdown
+  
+  This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets {.build}
+
+- Bullet 1 
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure, echo = FALSE}
+plot(pressure)
+```
+-->
