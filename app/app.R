@@ -47,6 +47,7 @@ server <- function(input, output, session) {
   goHome <- function() updateTabItems(session, "tabs", "overview")
   
   reqTable <- function(tableName) {
+    tbls()
     req(tableName)
     req(tableName %in% db_list_tables(pool))
   }

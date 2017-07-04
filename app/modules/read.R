@@ -34,7 +34,6 @@ read <- function(input, output, session, pool, reqTable, reqColInTable) {
   })
   
   observe({
-    tbls()
     reqColInTable(input$tableName, input$filter)
     df <- as_data_frame(pool %>% tbl(input$tableName) %>% select(input$filter))
     allUniqueVals <- unique(df[[input$filter]])

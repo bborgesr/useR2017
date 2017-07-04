@@ -27,7 +27,6 @@ delete <- function(input, output, session, pool, reqTable, reqColInTable, goHome
   })
   
   observe({
-    tbls()
     reqColInTable(input$tableName, input$col)
     req(db_query_rows(pool, input$tableName) > 0)
     
@@ -68,7 +67,8 @@ delete <- function(input, output, session, pool, reqTable, reqColInTable, goHome
     results <- lapply(as_list(input$vals), `%in%`, allUniqueVals)
     
     vals <- if (all(results)) {
-      input$vals
+      if (is(df[["count"]], "integer")) input$vals
+      else lapply(input$vals, sql_escape_string, con = pool)
     } else {
        showModal(modalDialog(
           title = "Invalid column values",
@@ -82,7 +82,7 @@ delete <- function(input, output, session, pool, reqTable, reqColInTable, goHome
       paste0(vals, collapse = ", "), ");")
 
     query <- sqlInterpolate(pool, sql, table = input$tableName)
-
+    
     dbExecute(pool, query)
     goHome()
   })

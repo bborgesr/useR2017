@@ -36,7 +36,6 @@ update <- function(input, output, session, pool, reqTable, reqColInTable, goHome
   })
   
   observe({
-    tbls()
     reqColInTable(input$tableName, input$col)
     req(db_query_rows(pool, input$tableName) > 0)
     
