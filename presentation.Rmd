@@ -108,7 +108,8 @@ sqlInterpolate(ANSI(), sql, name = "H'); DROP TABLE--;")
 con <-  DBI::dbConnect(odbc::odbc(), 
   Driver = "{postgresql}",
   Server = "postgresdemo.cfd8mtk93q6a.us-west-2.rds.amazonaws.com",
-  Port = 5432, Database = "postgresdemo",
+  Port = 5432, 
+  Database = "postgresdemo",
   UID = "guest",
   PWD = "guest"
 )
@@ -125,7 +126,7 @@ DBI::dbDisconnect(con)
 
 - **Idea**: use `dplyr` syntax to talk to databases (no *SQL* involved for the end user).
 
-- `dplyr` (and the brand-new `dbplyr`) wrap and extend a lot of `DBI` methods, so that you can use `dplyr` + *R* directly to interact with your database (instead of `DBI` + `SQL` -- basically, `dplyr` does that for you)
+- `dplyr` (and the brand-new `dbplyr`) wrap and extend a lot of `DBI` methods, so that you can use `dplyr` + *R* directly to interact with your database (instead of `DBI` + *SQL*, which is what `dplyr` does for you)
 
 - With the recent revamp, you can a LOT with `dplyr` (reading and transforming data, writing tables, querying the database), but `DBI` still allows you to do more (the price you pay...)
 
@@ -227,7 +228,7 @@ server <- function(input, output, session) {...}
 shinyApp(ui, server)
 ```
 
-## Shiny app: create table (adpated!)
+## Shiny app: create table (adapted!)
 
 ```{r, eval=FALSE} 
 actionButton("create", "Create table"),   # ui
@@ -257,7 +258,7 @@ observeEvent(input$create, {
 })
 ```
 
-## Shiny app: read table (adpated!)
+## Shiny app: read table (adapted!)
 
 ```{r, eval=FALSE} 
 selectInput("tableName", "Table name", NULL), # ui
